@@ -1,5 +1,6 @@
 import axios from "axios";
 import {
+  CompanyIncomeStatement,
   CompanyKeyMetrics,
   CompanyKeyRatios,
   CompanyProfile,
@@ -46,6 +47,19 @@ export const getKeyMetrics = async (query: string) => {
   try {
     const data = await axios.get<CompanyKeyMetrics[]>(
       `https://financialmodelingprep.com/api/v3/key-metrics-ttm/AAPL?limit=40&apikey=${
+        import.meta.env.VITE_API_KEY
+      }`
+    );
+    return data;
+  } catch (error: any) {
+    console.log("error message: ", error.message);
+  }
+};
+
+export const getIncomeStatement = async (query: string) => {
+  try {
+    const data = await axios.get<CompanyIncomeStatement[]>(
+      `https://financialmodelingprep.com/api/v3/income-statement/${query}?limit=40&apikey=${
         import.meta.env.VITE_API_KEY
       }`
     );
