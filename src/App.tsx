@@ -3,6 +3,7 @@ import { ChangeEvent, SyntheticEvent } from "react";
 import { searchCompanies } from "./api";
 import { CompanySearch } from "./company";
 import CardList from "./Components/CardList/CardList";
+import Navbar from "./Components/Navbar/Navbar";
 import ListPortfolio from "./Components/Portfolio/ListPortfolio/ListPortfolio";
 import { Search } from "./Components/Search/Search";
 
@@ -46,20 +47,23 @@ function App() {
 
   return (
     <div className="App">
-      {serverError && <h1>Unable to connect to API</h1>}
-      <Search
-        onSearchSubmit={onSearchSubmit}
-        search={search}
-        handleSearchChange={handleSearchChange}
-      />
-      <ListPortfolio
-        portfolioValues={portfolioValues}
-        onPortfolioDelete={onPortfolioDelete}
-      />
-      <CardList
-        searchResults={searchResult}
-        onPortfolioCreate={onPortfolioCreate}
-      />
+      <>
+        {serverError && <h1>Unable to connect to API</h1>}
+        <Navbar />
+        <Search
+          onSearchSubmit={onSearchSubmit}
+          search={search}
+          handleSearchChange={handleSearchChange}
+        />
+        <ListPortfolio
+          portfolioValues={portfolioValues}
+          onPortfolioDelete={onPortfolioDelete}
+        />
+        <CardList
+          searchResults={searchResult}
+          onPortfolioCreate={onPortfolioCreate}
+        />
+      </>
     </div>
   );
 }
