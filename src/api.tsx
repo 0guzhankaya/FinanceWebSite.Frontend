@@ -3,6 +3,7 @@ import {
   CompanyBalanceSheet,
   CompanyCashFlow,
   CompanyCompData,
+  CompanyHistoricalDividend,
   CompanyIncomeStatement,
   CompanyKeyMetrics,
   CompanyProfile,
@@ -115,6 +116,19 @@ export const getTenK = async (query: string) => {
   try {
     const data = await axios.get<CompanyTenK[]>(
       `https://financialmodelingprep.com/api/v3/sec_filings/${query}?type=10-K&page=0&apikey=${
+        import.meta.env.VITE_API_KEY
+      }`
+    );
+    return data;
+  } catch (error: any) {
+    console.log("error message: ", error.message);
+  }
+};
+
+export const getHistoricalDividend = async (query: string) => {
+  try {
+    const data = await axios.get<CompanyHistoricalDividend>(
+      `https://financialmodelingprep.com/api/v3/historical-price-full/stock_dividend/${query}?apikey=${
         import.meta.env.VITE_API_KEY
       }`
     );

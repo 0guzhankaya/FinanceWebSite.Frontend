@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaHome, FaMoneyBill, FaTable } from "react-icons/fa";
 import { FaTableCells } from 'react-icons/fa6';
+import { SlGraph } from 'react-icons/sl';
 
 const Sidebar = () => {
   return (
@@ -32,6 +33,11 @@ const Sidebar = () => {
             <Link to='cashflow-statement' className="flex md:min-w-full text-blue-300 text-xs uppercase font-bold pt-1 pb-4 no-underline">
               <FaMoneyBill />
               <h6 className="ml-3">Cashflow Statement</h6>
+            </Link>
+            <Link to='historical-dividend'
+             className="flex md:min-w-full text-blue-300 text-xs uppercase font-bold pt-1 pb-4 no-underline">
+                <SlGraph />
+                <h6 className="ml-3">Historical Dividend</h6>
             </Link>
           </div>
         </div>

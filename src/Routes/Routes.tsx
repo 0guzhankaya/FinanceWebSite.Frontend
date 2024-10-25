@@ -8,6 +8,7 @@ import DesignGuide from "../Pages/DesignGuide/DesignGuide";
 import HomePage from "../Pages/HomePage/HomePage";
 import SearchPage from "../Pages/SearchPage/SearchPage";
 import CashflowStatement from "../Components/CashflowStatement/CashflowStatement";
+import HistoricalDividend from "../Components/HistoricalDividend/HistoricalDividend";
 
 export const router = createBrowserRouter([
   {
@@ -28,7 +29,8 @@ export const router = createBrowserRouter([
               { path: "company-profile", element: <CompanyProfile /> },
               { path: "income-statement", element: <IncomeStatement /> },
               { path: "balance-sheet", element: <BalanceSheet /> },
-              { path: 'cashflow-statement', element: <CashflowStatement /> },
+              { path: "cashflow-statement", element: <CashflowStatement /> },
+              { path: "historical-dividend", element: <HistoricalDividend /> },
             ],
           },
         ],
