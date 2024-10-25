@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { getKeyMetrics } from "../../api";
 import RatioList from "../RatioList/RatioList";
+import Spinner from "../Spinners/Spinner";
 
 type Props = {};
 
@@ -51,7 +52,7 @@ const CompanyProfile = (props: Props) => {
           <RatioList config={tableConfig} data={companyData} />
         </>
       ) : (
-        <h1>No data found :(</h1>
+        <Spinner />
       )}
     </>
   );

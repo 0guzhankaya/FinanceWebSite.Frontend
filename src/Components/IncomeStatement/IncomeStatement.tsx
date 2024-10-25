@@ -3,6 +3,7 @@ import { useOutletContext } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getIncomeStatement } from "../../api";
 import Table from "../Table/Table";
+import Spinner from "../Spinners/Spinner";
 
 type Props = {};
 
@@ -55,7 +56,7 @@ function IncomeStatement({}: Props) {
       {incomeStatement ? (
         <Table config={configs} data={incomeStatement} />
       ) : (
-        <h1>Could not find income statement :(</h1>
+        <Spinner />
       )}
     </>
   );
