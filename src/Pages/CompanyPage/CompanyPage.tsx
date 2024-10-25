@@ -9,9 +9,7 @@ import Spinner from "../../Components/Spinners/Spinner";
 import CompFinder from "../../Components/CompFinder/CompFinder";
 import TenKFinder from "../../Components/TenKFinder/TenKFinder";
 
-interface Props {}
-
-const CompanyPage = (props: Props) => {
+const CompanyPage = () => {
   // https:localhost:5173/
   let { ticker } = useParams();
 
@@ -31,8 +29,9 @@ const CompanyPage = (props: Props) => {
           <Sidebar />
           <CompanyDashboard ticker={ticker!}>
             <Tile title="Company Name" subTitle={company.companyName} />
-            <Tile title="Price" subTitle={company.price.toString()} />
-            <Tile title="Market Cap" subTitle={company.mktCap.toString()} />
+            <Tile title="Price" subTitle={"$ " + company.price.toString()} />
+            <Tile title="DCF" subTitle={"$ " + company.dcf.toString()} />
+            <Tile title="Sector" subTitle={company.sector} />
             <CompFinder ticker={company.symbol} />
             <TenKFinder ticker={company.symbol} />
             <p className="bg-white shadow rounded text-medium font-medium text-gray-900 p-3 mt-1 m-4">
